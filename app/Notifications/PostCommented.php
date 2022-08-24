@@ -21,6 +21,7 @@ class PostCommented extends Notification
     public function __construct(Comment $comment)
     {
         $this->comment = $comment;
+          
     }
 
     /**
