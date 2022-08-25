@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +22,13 @@ Route::get('/', function () {
 
 //$this->resource('post', 'PostController');
 Route::get('/post', [PostController::class, 'index'])->middleware(['auth'])->name('index');
+
 Route::get('/post/show/{id}', [PostController::class, 'show'])->middleware(['auth'])->name('showPost');
+
 Route::post('/post/store', [CommentController::class, 'store'])->middleware(['auth'])->name('store');
+
+Route::get('/post/notification', [NotificationController::class, 'notifications'])->middleware(['auth'])->name('notification');
+Route::get('/post/markasread', [NotificationController::class, 'markAsRead'])->middleware(['auth'])->name('markAsRead');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

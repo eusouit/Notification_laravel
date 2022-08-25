@@ -12,6 +12,7 @@
 <hr>
 
 @endforeach
+<a href="{{route('notification')}}">NOTIFICAITONS</a>
 {!! $posts->links()!!}
 
 @endsection
